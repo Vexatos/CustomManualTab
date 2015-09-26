@@ -1,0 +1,17 @@
+[
+{
+  "modid": "ManualTab",
+  "name": "Custom Manual Tab",
+  "description": "Adds a new tab to the OpenComputers manual which text can be added to from the configs.",
+  "version": "${version}",
+  "credits": "",
+  "logoFile": "",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [ "Vexatos" ],
+  "parent":"",
+  "screenshots": [],
+  "dependencies": []
+}
+]
