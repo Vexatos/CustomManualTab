@@ -27,7 +27,8 @@ public class BadConfigException extends CustomModLoadingErrorDisplayException {
 
 	@Override
 	public void drawScreen(GuiErrorScreen errorScreen, FontRenderer fr, int mouseRelX, int mouseRelY, float tickTime) {
-		int offs = 10;
+		int offs = (errorScreen.height / 2) - 70;
+		//int offs = 10;
 		int centre = errorScreen.width / 2;
 		drawCenteredString(fr, "Could not load additional OpenComputers Manual Tab", centre, offs, 0xffffff);
 		offs += 15;

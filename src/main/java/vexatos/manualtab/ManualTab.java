@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  * @author Vexatos
  */
 @Mod(modid = Mods.ManualTab, name = Mods.ManualTab_NAME, version = "@VERSION@",
-	dependencies = "required-after:" + Mods.OpenComputers + "@[1.5.17,)")
+	dependencies = "required-after:" + Mods.OpenComputers + "@[1.5.18.784,)")
 public class ManualTab {
 
 	@Mod.Instance(Mods.ManualTab)
