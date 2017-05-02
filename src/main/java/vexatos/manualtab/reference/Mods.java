@@ -1,10 +1,10 @@
 package vexatos.manualtab.reference;
 
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.ModAPIManager;
-import cpw.mods.fml.common.ModContainer;
-import cpw.mods.fml.common.versioning.ArtifactVersion;
-import cpw.mods.fml.common.versioning.VersionParser;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.ModAPIManager;
+import net.minecraftforge.fml.common.ModContainer;
+import net.minecraftforge.fml.common.versioning.ArtifactVersion;
+import net.minecraftforge.fml.common.versioning.VersionParser;
 
 import java.util.HashMap;
 
@@ -15,11 +15,11 @@ public class Mods {
 
 	//The mod itself
 	public static final String
-		ManualTab = "ManualTab",
+		ManualTab = "manualtab",
 		ManualTab_NAME = "Custom Manual Tab";
 
 	public static final String
-		OpenComputers = "OpenComputers";
+		OpenComputers = "opencomputers";
 
 	//Other APIs
 	public static class API {

@@ -11,11 +11,11 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
 	}
 }
 
-apply plugin: 'forge'
+apply plugin: 'net.minecraftforge.gradle.forge'
 
 file "build.properties" withReader {
 	def prop = new Properties()
@@ -40,89 +40,25 @@ repositories {
 		name = "OC repo"
 		url = "http://maven.cil.li/"
 	}
-	maven {
-		name "Mobius Repo"
-		url "http://mobiusstrip.eu/maven"
-	}
-	maven {
-		name 'CB Repo'
-		url "http://chickenbones.net/maven/"
-	}
-	maven {
-		name 'tterrag Repo'
-		url "http://maven.tterrag.com/"
-	}
-	maven {
-		name = "Forestry and IC2 repo"
-		url = "http://maven.ic2.player.to/"
-	}
-	maven {
-		name = "Bluepower Repo"
-		url = "http://maven.bluepowermod.com/"
-	}
-	maven {
-		name = "RX14's Repo"
-		url = "http://mvn.rx14.co.uk/repo/"
-    }
-	ivy {
-		name = "BuildCraft"
-		artifactPattern "http://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision]-[classifier].[ext]"
-	}
 }
 
 configurations {
 	provided
 	embedded
 	compile.extendsFrom provided, embedded
-	all*.exclude group: "codechicken"
 }
 
 dependencies {
-	compile "li.cil.oc:OpenComputers:${config.oc.version}:dev"
-	provided "net.industrial-craft:industrialcraft-2:${config.ic2.version}:dev"
-	provided "com.gregoriust.gregtech:gregtech_1.7.10:${config.gregtech.version}:dev"
-	compile "mcp.mobius.waila:Waila:${config.waila.version}:dev"
-	compile("com.enderio:EnderIO:${config.enderio.version}:dev") {
-		exclude module: "appliedenergistics2"
-		exclude module: "buildcraft"
-		exclude module: "Waila"
-		exclude module: "forestry_1.7.10"
-	}
-	compile("net.sengir.forestry:forestry_1.7.10:${config.forestry.version}:dev") {
-		exclude module: "buildcraft"
-		exclude module: "industrialcraft-2"
-	}
-	compile name: "buildcraft", version: "${config.buildcraft.version}", classifier: "dev"
-	compile("appeng:appliedenergistics2:${config.ae2.version}:dev") {
-		transitive = false
-	}
-	compile("riskyken.armourersWorkshop:Armourers-Workshop:1.7.10-${config.am.version}:deobf"){
-		transitive = false
-	}
-	//provided("com.bluepowermod:BluePower:${config.bluepower.version}:deobf") {
-	//	transitive = false
-	//}
-	//provided("qmunity:QmunityLib:${config.qmunitylib.version}:deobf") {
-	//	transitive = false
-	//}
+	deobfCompile "li.cil.oc:OpenComputers:${config.oc.version}"
 }
 
 minecraft {
 	version = "${config.minecraft.version}-${config.forge.version}"
 	runDir = "eclipse"
+	mappings = config.mappings
 
 	replaceIn "vexatos/manualtab/ManualTab.java"
 	replace "@VERSION@", "${config.manualtab.version}"
-}
-
-sourceSets {
-	main {
-		output.resourcesDir = 'build/classes/main'
-	}
-}
-
-jar {
-	exclude 'cofh/**'
 }
 
 apply plugin: 'idea'

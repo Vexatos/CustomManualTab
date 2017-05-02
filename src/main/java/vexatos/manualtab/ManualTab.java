@@ -1,10 +1,10 @@
 package vexatos.manualtab;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import li.cil.oc.api.Manual;
 import li.cil.oc.api.manual.TabIconRenderer;
 import li.cil.oc.api.prefab.ItemStackTabIconRenderer;
@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  * @author Vexatos
  */
 @Mod(modid = Mods.ManualTab, name = Mods.ManualTab_NAME, version = "@VERSION@",
-	dependencies = "required-after:" + Mods.OpenComputers + "@[1.5.18.784,)")
+	dependencies = "required-after:" + Mods.OpenComputers + "@[1.7.0,)")
 public class ManualTab {
 
 	@Mod.Instance(Mods.ManualTab)
@@ -74,9 +74,9 @@ public class ManualTab {
 					proxy.throwBadConfigException(icon);
 					return;
 				}
-				Object object = Item.itemRegistry.getObject(strings[0]);
-				if(object instanceof Item) {
-					r = new ItemStackTabIconRenderer(new ItemStack((Item) object, 1, meta));
+				Item item = Item.REGISTRY.getObject(new ResourceLocation(strings[0]));
+				if(item != null) {
+					r = new ItemStackTabIconRenderer(new ItemStack(item, 1, meta));
 				} else {
 					r = new TextureTabIconRenderer(new ResourceLocation("opencomputers", "textures/gui/manual_missing_item.png"));
 				}

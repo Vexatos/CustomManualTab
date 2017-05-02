@@ -1,7 +1,7 @@
 package vexatos.manualtab.manual;
 
 import com.google.common.base.Charsets;
-import cpw.mods.fml.common.Loader;
+import net.minecraftforge.fml.common.Loader;
 import li.cil.oc.api.manual.ContentProvider;
 
 import java.io.BufferedReader;
