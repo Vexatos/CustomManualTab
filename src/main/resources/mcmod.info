@@ -1,6 +1,6 @@
 [
 {
-  "modid": "ManualTab",
+  "modid": "manualtab",
   "name": "Custom Manual Tab",
   "description": "Adds a new tab to the OpenComputers manual which text can be added to from the configs.",
   "version": "${version}",
